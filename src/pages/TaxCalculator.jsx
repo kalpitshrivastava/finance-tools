@@ -42,13 +42,13 @@ export default function TaxCalculator() {
             color: "#fff",
             backgroundColor: "#007bff",
             padding: "8px 15px",
-            borderRadius: "5px",
+            borderRadius: "4px",
           }}
         >
           &larr; Back to Home
         </Link>
       </div>
-      
+
       <h1>Income Tax Calculator</h1>
       <p>
         Use our <strong>Income Tax Calculator</strong> to estimate your tax liability for FY 2025.
