@@ -19,18 +19,18 @@ export default function EmiCalculator() {
     }
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/api/emi/calculate",
-        { loanAmount, interestRate, tenureMonths }
-      );
-      setResult(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/api/emi/calculate`,
+      { loanAmount, interestRate, tenureMonths }
+    );
+    setResult(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   return (
     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
