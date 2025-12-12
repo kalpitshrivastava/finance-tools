@@ -6,6 +6,8 @@ import FdCalculator from "./pages/FdCalculator";
 import TaxCalculator from "./pages/TaxCalculator";
 import SalaryCalculator from "./pages/SalaryCalculator";
 import ScrollToTop from "./components/ScrollToTop";
+import MiniGame from "./pages/MiniGame";
+
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
         <Route path="/fd-calculator" element={<FdCalculator />} />
         <Route path="/income-tax-calculator" element={<TaxCalculator />} />
         <Route path="/salary-calculator" element={<SalaryCalculator />} />
+        <Route path="/mini-game" element={<MiniGame />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaCalculator, FaMoneyBillWave, FaPiggyBank, FaFileInvoiceDollar, FaWallet } from "react-icons/fa";
+import { FaCalculator, FaMoneyBillWave, FaPiggyBank, FaFileInvoiceDollar, FaWallet, FaGamepad } from "react-icons/fa";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -35,6 +35,12 @@ export default function Home() {
       icon: <FaWallet size={40} color="#17a2b8" />,
     },
     
+        {
+      name: "Mini Game",
+      description: "Play a fun little number guessing game!",
+      link: "/mini-game",
+      icon: <FaGamepad size={40} color="#9b59b6" />,
+    },
   ];
 
 
