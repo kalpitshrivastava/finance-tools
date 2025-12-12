@@ -7,6 +7,7 @@ export default function FdCalculator() {
   const [rate, setRate] = useState("");
   const [tenureMonths, setTenureMonths] = useState("");
   const [result, setResult] = useState(null);
+  const API_URL = process.env.REACT_APP_API_URL ;
 
   useEffect(() => {
     document.title = "FD Calculator Online | Fixed Deposit Returns 2025";
@@ -19,18 +20,22 @@ export default function FdCalculator() {
     }
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/api/fd/calculate",
-        { principal, rate, tenureMonths }
-      );
-      setResult(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const T = parseFloat(tenureMonths) / 12; // convert months to years
+    const res = await axios.post(`${API_URL}/api/fd/calculate`, {
+      principal: parseFloat(principal),
+      annualInterestRate: parseFloat(rate),
+      years: T
+    });
+    setResult(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 
   return (
     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>

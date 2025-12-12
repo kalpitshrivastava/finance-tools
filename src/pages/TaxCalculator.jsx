@@ -3,8 +3,9 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function TaxCalculator() {
-  const [income, setIncome] = useState("");
+  const [annualIncome, setAnnualIncome] = useState("");
   const [result, setResult] = useState(null);
+const API_URL = process.env.REACT_APP_API_URL ;
 
   useEffect(() => {
     document.title = "Income Tax Calculator Online | 2025";
@@ -17,18 +18,19 @@ export default function TaxCalculator() {
     }
   }, []);
 
+
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/api/tax/calculate",
-        { income }
-      );
-      setResult(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  e.preventDefault();
+  try {
+    const res = await axios.post(
+      `${API_URL}/api/tax/calculate`,
+      { annualIncome }
+    );
+    setResult(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
 
   return (
     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
@@ -59,8 +61,8 @@ export default function TaxCalculator() {
           <label>Annual Income (₹):</label>
           <input
             type="number"
-            value={income}
-            onChange={(e) => setIncome(e.target.value)}
+            value={annualIncome}
+            onChange={(e) => setAnnualIncome(e.target.value)}
             required
           />
         </div>

@@ -7,6 +7,7 @@ export default function SalaryCalculator() {
   const [hra, setHra] = useState("");
   const [otherAllowances, setOtherAllowances] = useState("");
   const [result, setResult] = useState(null);
+  const API_URL = process.env.REACT_APP_API_URL ;
 
   useEffect(() => {
     document.title = "Salary Calculator Online | 2025";
@@ -19,18 +20,18 @@ export default function SalaryCalculator() {
     }
   }, []);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/api/salary/calculate",
-        { basicSalary, hra, otherAllowances }
-      );
-      setResult(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const ctc = parseFloat(basicSalary) + parseFloat(hra) + parseFloat(otherAllowances);
+    const res = await axios.post(`${API_URL}/api/salary/calculate`, { ctc });
+    setResult(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 
   return (
     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
@@ -49,7 +50,7 @@ export default function SalaryCalculator() {
           &larr; Back to Home
         </Link>
       </div>
-      
+
       <h1>Salary Calculator</h1>
       <p>
         Use our <strong>Salary Calculator</strong> to calculate your net take-home salary.

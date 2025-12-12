@@ -7,7 +7,8 @@ export default function EmiCalculator() {
   const [interestRate, setInterestRate] = useState("");
   const [tenureMonths, setTenureMonths] = useState("");
   const [result, setResult] = useState(null);
-  const API_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:5000";
+  const API_URL = process.env.REACT_APP_API_URL ;
+  
   
   useEffect(() => {
     document.title = "EMI Calculator Online | Home Loan EMI 2025";

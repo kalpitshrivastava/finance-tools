@@ -7,7 +7,8 @@ export default function SipCalculator() {
   const [rateOfReturn, setRateOfReturn] = useState("");
   const [tenureYears, setTenureYears] = useState("");
   const [result, setResult] = useState(null);
-
+ const API_URL = process.env.REACT_APP_API_URL ;
+ 
   useEffect(() => {
     document.title = "SIP Calculator Online | Plan Your Investments";
     const metaDesc = document.querySelector("meta[name='description']");
@@ -20,17 +21,19 @@ export default function SipCalculator() {
   }, []);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await axios.post(
-        "http://127.0.0.1:5000/api/sip/calculate",
-        { monthlyInvestment, rateOfReturn, tenureYears }
-      );
-      setResult(res.data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  e.preventDefault();
+  try {
+    const res = await axios.post(`${API_URL}/api/sip/calculate`, {
+      monthlyInvestment: parseFloat(monthlyInvestment),
+      annualInterestRate: parseFloat(rateOfReturn),
+      years: parseInt(tenureYears),
+    });
+    setResult(res.data);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 
   return (
     <div style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
