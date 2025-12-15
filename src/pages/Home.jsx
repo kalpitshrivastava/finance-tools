@@ -1,162 +1,153 @@
 import { Link } from "react-router-dom";
-import { FaCalculator, FaMoneyBillWave, FaPiggyBank, FaFileInvoiceDollar, FaWallet, FaGamepad } from "react-icons/fa";
+import {
+  FaCalculator,
+  FaMoneyBillWave,
+  FaPiggyBank,
+  FaFileInvoiceDollar,
+  FaWallet,
+  FaGamepad
+} from "react-icons/fa";
 import { useEffect } from "react";
 
 export default function Home() {
-  const calculators = [
-    {
-      name: "EMI Calculator",
-      description: "Calculate monthly payments for home, car, or personal loans.",
-      link: "/emi-calculator",
-      icon: <FaCalculator size={40} color="#007bff" />,
-    },
-    {
-      name: "SIP Calculator",
-      description: "Plan your SIP investments and estimate returns over time.",
-      link: "/sip-calculator",
-      icon: <FaMoneyBillWave size={40} color="#28a745" />,
-    },
-    {
-      name: "FD Calculator",
-      description: "Calculate your fixed deposit maturity amount and interest.",
-      link: "/fd-calculator",
-      icon: <FaPiggyBank size={40} color="#ffc107" />,
-    },
-    {
-      name: "Income Tax Calculator",
-      description: "Estimate your income tax and net income after tax.",
-      link: "/income-tax-calculator",
-      icon: <FaFileInvoiceDollar size={40} color="#dc3545" />,
-    },
-    {
-      name: "Salary Calculator",
-      description: "Calculate your net salary including allowances and deductions.",
-      link: "/salary-calculator",
-      icon: <FaWallet size={40} color="#17a2b8" />,
-    },
+  useEffect(() => {
+    document.title = "FinanceTools | Vibrant Calculators";
+  }, []);
 
-    {
-      name: "Life Cycle Money Flow Calculator",
-      description: "Calculate your Money Flow.",
-      link: "/money-flow-calculator",
-      icon: <FaWallet size={40} color="#17a2b8" />,
-    },
-    
-        {
-      name: "Mini Game",
-      description: "Play a fun little number guessing game!",
-      link: "/mini-game",
-      icon: <FaGamepad size={40} color="#9b59b6" />,
-    },
+  const tools = [
+    { name: "EMI Calculator", desc: "Loan EMI & tenure", link: "/emi-calculator", icon: <FaCalculator />, color: "#FF6B6B" },
+    { name: "SIP Calculator", desc: "Investment growth", link: "/sip-calculator", icon: <FaMoneyBillWave />, color: "#4ECDC4" },
+    { name: "FD Calculator", desc: "FD returns", link: "/fd-calculator", icon: <FaPiggyBank />, color: "#FFD93D" },
+    { name: "Income Tax", desc: "Old vs New regime", link: "/income-tax-calculator", icon: <FaFileInvoiceDollar />, color: "#FF6B6B" },
+    { name: "Salary Calculator", desc: "CTC → In-hand", link: "/salary-calculator", icon: <FaWallet />, color: "#1E90FF" },
+    { name: "Money Flow", desc: "Life-cycle planning", link: "/money-flow-calculator", icon: <FaWallet />, color: "#9B59B6" },
+    { name: "Mini Game", desc: "Quick brain break", link: "/mini-game", icon: <FaGamepad />, color: "#FF9F1C" }
   ];
 
-
-  useEffect(() => {
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.innerHTML = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Finance Tools Online",
-    "description": "Free online calculators for EMI, SIP, FD, Income Tax, and Salary. Plan your finances efficiently.",
-    "mainEntity": [
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What calculators are available?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "EMI Calculator, SIP Calculator, FD Calculator, Income Tax Calculator, and Salary Calculator."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are these calculators free to use?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, all calculators are completely free and provide instant results."
-            }
-          }
-        ]
-      }
-    ]
-  });
-  document.head.appendChild(script);
-}, []);
-
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", color: "#333" }}>
-      {/* Hero Section */}
-      <div
-        style={{
-          background: "linear-gradient(90deg, #007bff, #00c6ff)",
-          color: "#fff",
-          padding: "20px 20px",
-          textAlign: "center",
-          borderRadius: "10px",
-          marginBottom: "20px",
-        }}
-      >
-        <h1 style={{ fontSize: "2rem", marginBottom: "5px" }}>Finance Calculators Online</h1>
-        <p style={{ fontSize: "1.2rem" }}>
-          Calculate EMI, SIP, FD, Income Tax, and Salary instantly with our free, easy-to-use tools.
+    <div style={styles.page}>
+      {/* HERO */}
+      <section style={styles.hero}>
+        <h1 style={styles.heroTitle}>Smart Finance Tools</h1>
+        <p style={styles.heroSubtitle}>
+          Vibrant, accurate, and interactive calculators for Indian finance.
         </p>
-      </div>
+      </section>
 
-      {/* Calculators Grid */}
-      <div
-        style={{
-          maxWidth: "1000px",
-          margin: "auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-          gap: "20px",
-        }}
-      >
-        {calculators.map((calc, index) => (
-          <Link
-            key={index}
-            to={calc.link}
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
+      {/* Tools Grid */}
+      <section style={styles.grid}>
+        {tools.map((t, i) => (
+          <Link key={i} to={t.link} style={styles.link}>
             <div
-              style={{
-                padding: "25px",
-                backgroundColor: "#f8f9fa",
-                borderRadius: "15px",
-                boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-                transition: "transform 0.2s, box-shadow 0.2s",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-8px)";
-                e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.15)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
-              }}
+              style={{ ...styles.card, background: `linear-gradient(135deg, ${t.color}20, ${t.color}40)` }}
+              className="hover-card"
             >
-              {calc.icon}
-              <h2 style={{ margin: "15px 0 10px 0" }}>{calc.name}</h2>
-              <p style={{ color: "#555" }}>{calc.description}</p>
+              <div style={{ ...styles.icon, color: t.color }}>{t.icon}</div>
+              <div style={styles.cardTitle}>{t.name}</div>
+              <div style={styles.cardDesc}>{t.desc}</div>
             </div>
           </Link>
         ))}
-      </div>
+      </section>
 
-      {/* Footer / CTA */}
-      <div style={{ textAlign: "center", marginTop: "50px", color: "#666" }}>
-        <p>
-          All calculators are free to use and help you plan your finances better.
-        </p>
-        <p>&copy; 2025 Finance Tools</p>
-      </div>
+      {/* Trust / Highlights */}
+      <section style={styles.trust}>
+        <span>✔ Free</span>
+        <span>✔ No Ads</span>
+        <span>✔ No Login</span>
+        <span>✔ Vibrant & Interactive</span>
+      </section>
+
+      {/* Hover styles using inline <style> */}
+      <style>
+        {`
+          .hover-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+          }
+        `}
+      </style>
     </div>
   );
 }
+
+const styles = {
+  page: {
+    background: "#f8fafc",
+    minHeight: "calc(100vh - 120px)",
+    padding: "32px 18px",
+    fontFamily: "Inter, system-ui, sans-serif",
+    color: "#0f172a"
+  },
+
+  hero: {
+    maxWidth: 900,
+    margin: "0 auto 32px",
+    textAlign: "center",
+    padding: "20px",
+    borderRadius: 16,
+    background: "linear-gradient(135deg, #1E90FF, #4ECDC4)",
+    color: "#fff",
+    boxShadow: "0 12px 28px rgba(0,0,0,0.12)"
+  },
+
+  heroTitle: {
+    fontSize: 32,
+    fontWeight: 700,
+    marginBottom: 6
+  },
+
+  heroSubtitle: {
+    fontSize: 16,
+    color: "rgba(255,255,255,0.85)"
+  },
+
+  grid: {
+    maxWidth: 900,
+    margin: "0 auto",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    gap: 20
+  },
+
+  link: { textDecoration: "none", color: "inherit" },
+
+  card: {
+    height: 140,
+    borderRadius: 16,
+    padding: 16,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    transition: "all 0.3s ease",
+    cursor: "pointer",
+    boxShadow: "0 8px 20px rgba(0,0,0,0.05)"
+  },
+
+  icon: {
+    fontSize: 28,
+    marginBottom: 8
+  },
+
+  cardTitle: {
+    fontSize: 16,
+    fontWeight: 600,
+    marginBottom: 4
+  },
+
+  cardDesc: {
+    fontSize: 13,
+    color: "#64748b",
+    textAlign: "center"
+  },
+
+  trust: {
+    maxWidth: 900,
+    margin: "40px auto 0",
+    display: "flex",
+    justifyContent: "space-around",
+    fontSize: 12,
+    color: "#64748b"
+  }
+};
