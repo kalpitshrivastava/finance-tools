@@ -1,66 +1,147 @@
+/* ---------- Global ---------- */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
+  background: linear-gradient(135deg, #0f172a, #020617);
   margin: 0;
   padding: 0;
   color: #333;
 }
 
 h1, h2, h3, h4 {
-  color: #222;
+  color: #0f172a;
 }
 
 a {
   text-decoration: none;
 }
 
+/* ---------- Calculator Container ---------- */
 .calculator-container {
-  padding: 20px;
+  padding: 25px;
   max-width: 600px;
-  margin: auto;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin: 40px auto;
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
+/* ---------- Inputs ---------- */
 .calculator-container input {
   width: 100%;
-  padding: 10px;
-  margin: 5px 0 15px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  padding: 12px;
+  margin: 6px 0 18px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
   box-sizing: border-box;
+  font-size: 0.95rem;
 }
 
+.calculator-container input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+/* ---------- Range Slider ---------- */
+.calculator-container input[type="range"] {
+  padding: 0;
+  margin-top: 10px;
+}
+
+/* ---------- Buttons ---------- */
 .calculator-container button {
-  padding: 10px 20px;
-  background-color: #007bff;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .calculator-container button:hover {
-  background-color: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
 }
 
+/* ---------- Value Labels (₹ / Lakh / Crore) ---------- */
+.value {
+  text-align: right;
+  font-weight: 600;
+  color: #0f172a;
+  margin-top: -8px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* ---------- Results Section ---------- */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.result-box {
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Color-coded result cards */
+.result-box.emi {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.result-box.interest {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.result-box.total {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.result-box span {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.result-box strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 4px;
+}
+
+/* ---------- FAQ ---------- */
 .faq-section {
   margin-top: 30px;
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 8px;
+  background-color: #f8fafc;
+  padding: 18px;
+  border-radius: 12px;
 }
 
 .faq-section h3 {
   margin-bottom: 5px;
+  color: #0f172a;
 }
 
+.faq-section p {
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+/* ---------- Internal Links ---------- */
 .internal-links {
   margin-top: 30px;
-  padding: 15px;
-  background-color: #e8f0fe;
-  border-radius: 8px;
+  padding: 18px;
+  background-color: #eef2ff;
+  border-radius: 12px;
 }
 
 .internal-links ul {
@@ -69,7 +150,7 @@ a {
 }
 
 .internal-links ul li a {
-  color: #007bff;
+  color: #2563eb;
   font-weight: 600;
 }
 
@@ -77,6 +158,7 @@ a {
   text-decoration: underline;
 }
 
+/* ---------- Home Grid ---------- */
 .home-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -84,21 +166,34 @@ a {
   margin-top: 20px;
 }
 
+/* ---------- Home Cards ---------- */
 .home-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 25px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
+  padding: 26px;
+  background: linear-gradient(135deg, #f8fafc, #e5e7eb);
+  border-radius: 14px;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .home-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 600px) {
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .calculator-container {
+    margin: 20px 10px;
+    padding: 20px;
+  }
 }

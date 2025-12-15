@@ -34,6 +34,13 @@ export default function Home() {
       link: "/salary-calculator",
       icon: <FaWallet size={40} color="#17a2b8" />,
     },
+
+    {
+      name: "Life Cycle Money Flow Calculator",
+      description: "Calculate your Money Flow.",
+      link: "/money-flow-calculator",
+      icon: <FaWallet size={40} color="#17a2b8" />,
+    },
     
         {
       name: "Mini Game",

@@ -5,6 +5,7 @@ import SipCalculator from "./pages/SipCalculator";
 import FdCalculator from "./pages/FdCalculator";
 import TaxCalculator from "./pages/TaxCalculator";
 import SalaryCalculator from "./pages/SalaryCalculator";
+import LifeCycleMoneyFlow from "./pages/lifecyclemoneyflowcal";
 import ScrollToTop from "./components/ScrollToTop";
 import MiniGame from "./pages/MiniGame";
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/fd-calculator" element={<FdCalculator />} />
         <Route path="/income-tax-calculator" element={<TaxCalculator />} />
         <Route path="/salary-calculator" element={<SalaryCalculator />} />
+        <Route path="/money-flow-calculator" element={<LifeCycleMoneyFlow />} />
         <Route path="/mini-game" element={<MiniGame />} />
       </Routes>
     </BrowserRouter>
