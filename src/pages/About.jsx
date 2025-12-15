@@ -8,6 +8,17 @@ export default function About() {
         </p>
       </section>
 
+      
+      {/* Google AdSense Ad */}
+      <div style={{ margin: "20px 0", textAlign: "center" }}>
+        <ins className="adsbygoogle"
+             style={{ display: "block", width: "100%", maxWidth: 728, height: 30, margin: "0 auto" }}
+             data-ad-client="ca-pub-5755839292408890"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
+
       <section style={styles.content}>
         <p>
           FinanceTools is designed for Indian users who want **fast, accurate, and reliable financial tools**.
@@ -15,7 +26,6 @@ export default function About() {
         </p>
 
         <ul style={styles.list}>
-          <li>No ads</li>
           <li>No login required</li>
           <li>No data tracking</li>
           <li>Accurate and transparent formulas</li>
@@ -26,6 +36,7 @@ export default function About() {
           Built by passionate engineers who believe finance should be **simple, engaging, and accessible to everyone**.
         </p>
       </section>
+
     </div>
   );
 }

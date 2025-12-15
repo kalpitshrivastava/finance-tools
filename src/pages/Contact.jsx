@@ -9,6 +9,16 @@ export default function Contact() {
           We love to hear from you! Questions, suggestions, or feedback.
         </p>
       </section>
+      
+      {/* Google AdSense Ad */}
+      <div style={{ margin: "20px 0", textAlign: "center" }}>
+        <ins className="adsbygoogle"
+             style={{ display: "block", width: "100%", maxWidth: 728, height: 30, margin: "0 auto" }}
+             data-ad-client="ca-pub-5755839292408890"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
 
       <section style={styles.contactGrid}>
         <div style={{ ...styles.card, background: "#FF6B6B20" }}>
