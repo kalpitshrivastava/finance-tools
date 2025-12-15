@@ -44,7 +44,7 @@ export default function Home() {
       {/* Google AdSense Ad */}
       <div style={{ margin: "20px 0", textAlign: "center" }}>
         <ins className="adsbygoogle"
-             style={{ display: "block", width: "100%", maxWidth: 728, height: 90, margin: "0 auto" }}
+             style={{ display: "block", width: "100%", maxWidth: 728, height: 30, margin: "0 auto" }}
              data-ad-client="ca-pub-5755839292408890"
              data-ad-slot="1234567890"
              data-ad-format="auto"
@@ -70,7 +70,6 @@ export default function Home() {
       {/* Trust / Highlights */}
       <section style={styles.trust}>
         <span>✔ Free</span>
-        <span>✔ No Ads</span>
         <span>✔ No Login</span>
         <span>✔ Vibrant & Interactive</span>
       </section>
