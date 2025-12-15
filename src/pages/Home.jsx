@@ -12,6 +12,13 @@ import { useEffect } from "react";
 export default function Home() {
   useEffect(() => {
     document.title = "FinanceTools | Vibrant Calculators";
+
+    // Trigger AdSense ads
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (e) {
+      console.log("AdSense error:", e);
+    }
   }, []);
 
   const tools = [
@@ -33,6 +40,16 @@ export default function Home() {
           Vibrant, accurate, and interactive calculators for Indian finance.
         </p>
       </section>
+
+      {/* Google AdSense Ad */}
+      <div style={{ margin: "20px 0", textAlign: "center" }}>
+        <ins className="adsbygoogle"
+             style={{ display: "block", width: "100%", maxWidth: 728, height: 90, margin: "0 auto" }}
+             data-ad-client="ca-pub-5755839292408890"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+      </div>
 
       {/* Tools Grid */}
       <section style={styles.grid}>
@@ -58,7 +75,7 @@ export default function Home() {
         <span>✔ Vibrant & Interactive</span>
       </section>
 
-      {/* Hover styles using inline <style> */}
+      {/* Hover styles */}
       <style>
         {`
           .hover-card:hover {
